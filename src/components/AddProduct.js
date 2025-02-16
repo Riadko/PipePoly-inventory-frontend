@@ -105,6 +105,9 @@ const AddProduct = () => {
               screenshotFormat="image/jpeg"
               width={300}
               height={300}
+              videoConstraints={{
+                facingMode: { exact: "environment" } // Use rear camera
+              }}
             />
             <button type="button" onClick={capture}>Capture Photo</button>
           </div>
