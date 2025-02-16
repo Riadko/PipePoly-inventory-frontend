@@ -17,7 +17,7 @@ const QRScanner = () => {
     scanner.render(
       async (decodedText) => {
         try {
-          const response = await axios.get(`http://localhost:5000/items/${decodedText}`);
+          const response = await axios.get(`https://pipepoly-inventory-backend.onrender.com/items/${decodedText}`);
           setResult(response.data);
           setError(""); // Clear any previous error
           setShowScanAnother(true);
@@ -49,7 +49,7 @@ const QRScanner = () => {
     scanner.render(
       async (decodedText) => {
         try {
-          const response = await axios.get(`http://localhost:5000/items/${decodedText}`);
+          const response = await axios.get(`https://pipepoly-inventory-backend.onrender.com/items/${decodedText}`);
           setResult(response.data);
           setError(""); // Clear any previous error
           setShowScanAnother(true);
@@ -84,7 +84,7 @@ const QRScanner = () => {
     if (!result) return;
 
     try {
-      const response = await axios.put(`http://localhost:5000/items/${result.qr_code}`, {
+      const response = await axios.put(`https://pipepoly-inventory-backend.onrender.com/items/${result.qr_code}`, {
         name: result.name,
         quantity: result.quantity,
         description: result.description,
@@ -110,7 +110,7 @@ const QRScanner = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`http://localhost:5000/items/${result.qr_code}`);
+      const response = await axios.delete(`https://pipepoly-inventory-backend.onrender.com/items/${result.qr_code}`);
 
       if (response.status === 200) {
         setResult(null);

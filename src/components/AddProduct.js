@@ -14,7 +14,7 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       // Send the product details, including description and image_url
-      await axios.post('http://localhost:5000/items', {
+      await axios.post('https://pipepoly-inventory-backend.onrender.com/items', {
         name,
         quantity: parseInt(quantity, 10),
         qr_code: "",  // We send an empty string so the backend will generate a QR code

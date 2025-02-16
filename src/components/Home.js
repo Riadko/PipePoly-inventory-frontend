@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/items');
+        const response = await axios.get('https://pipepoly-inventory-backend.onrender.com/items');
         setProducts(response.data);
         setAllProducts(response.data); // Store all products
       } catch (error) {
@@ -67,7 +67,7 @@ const Home = () => {
     if (!selectedProduct) return;
 
     try {
-      const response = await axios.put(`http://localhost:5000/items/${selectedProduct.qr_code}`, {
+      const response = await axios.put(`https://pipepoly-inventory-backend.onrender.com/items/${selectedProduct.qr_code}`, {
         name: selectedProduct.name,
         quantity: selectedProduct.quantity,
         description: selectedProduct.description,
@@ -98,7 +98,7 @@ const Home = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`http://localhost:5000/items/${selectedProduct.qr_code}`);
+      const response = await axios.delete(`https://pipepoly-inventory-backend.onrender.com/items/${selectedProduct.qr_code}`);
 
       if (response.status === 200) {
         setProducts((prevProducts) =>
@@ -129,7 +129,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2>Inventory List</h2>
+      <h2>Product List</h2>
       <div className="search-add-container">
         <div className="search-container">
           <input
