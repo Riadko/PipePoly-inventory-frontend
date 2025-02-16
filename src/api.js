@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/items';
+const API_URL = 'https://pipepoly-inventory-backend.onrender.com/items';
 
 export const getAllItems = async () => {
   const response = await axios.get(API_URL);
