@@ -12,6 +12,7 @@ const QRScanner = () => {
     const scanner = new Html5QrcodeScanner("reader", {
       fps: 10,
       qrbox: { width: 250, height: 250 },
+      facingMode: "environment" // Use the main camera by default
     });
 
     scanner.render(
@@ -45,6 +46,7 @@ const QRScanner = () => {
     const scanner = new Html5QrcodeScanner("reader", {
       fps: 10,
       qrbox: { width: 250, height: 250 },
+      facingMode: "environment" // Use the main camera by default
     });
     scanner.render(
       async (decodedText) => {

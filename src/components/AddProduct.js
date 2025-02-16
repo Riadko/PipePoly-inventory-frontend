@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import axios from 'axios';
+import Resizer from 'react-image-file-resizer';
+import { useDropzone } from 'react-dropzone';
+import Webcam from 'react-webcam';
 import './AddProduct.css'; // Import the CSS file
 
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [qrCode, setQrCode] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [message, setMessage] = useState('');
+  const [showWebcam, setShowWebcam] = useState(false);
+  const webcamRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +36,30 @@ const AddProduct = () => {
       setMessage('Error adding product.');
     }
   };
+
+  const onDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      'JPEG',
+      100,
+      0,
+      (uri) => {
+        setImageUrl(uri);
+      },
+      'base64'
+    );
+  }, []);
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
+  const capture = useCallback(() => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setImageUrl(imageSrc);
+    setShowWebcam(false);
+  }, [webcamRef]);
 
   return (
     <div>
@@ -64,14 +92,24 @@ const AddProduct = () => {
             placeholder='Description'
           />
         </div>
-        <div>
-          <input
-            type="text"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-            placeholder='Image URL'
-          />
+        <div {...getRootProps()} className="dropzone">
+          <input {...getInputProps()} />
+          <p>Drag 'n' drop an image here, or click to select one</p>
         </div>
+        <button type="button" onClick={() => setShowWebcam(true)}>Take Photo</button>
+        {showWebcam && (
+          <div>
+            <Webcam
+              audio={false}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              width={300}
+              height={300}
+            />
+            <button type="button" onClick={capture}>Capture Photo</button>
+          </div>
+        )}
+        {imageUrl && <img src={imageUrl} alt="Product" style={{ width: '100px', height: '100px' }} />}
         <button type="submit">Add Product</button>
       </form>
     </div>
