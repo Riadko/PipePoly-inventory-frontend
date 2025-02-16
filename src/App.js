@@ -9,11 +9,12 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <h1>Inventory Management</h1>
+        <img src={`${process.env.PUBLIC_URL}/logoBlack.png`} alt="Logo" className="logo" />
+        <h1>Gestion des stocks</h1>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/scan">Scan QR Code</Link>
-          <Link to="/add-product">Add Product</Link>
+          <Link to="/">Accueil</Link>
+          <Link to="/scan">QR code</Link>
+          <Link to="/add-product">Ajouter produit</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />

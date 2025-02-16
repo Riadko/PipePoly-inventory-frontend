@@ -63,7 +63,7 @@ const AddProduct = () => {
 
   return (
     <div>
-      <h2>Add New Product</h2>
+      <h2>Ajouter un produit</h2>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
@@ -71,7 +71,7 @@ const AddProduct = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder='Product Name'
+            placeholder='Nom du produit'
             required
           />
         </div>
@@ -80,7 +80,7 @@ const AddProduct = () => {
             type="number"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            placeholder='Quantity'
+            placeholder='Quantité'
             required
           />
         </div>
@@ -94,9 +94,9 @@ const AddProduct = () => {
         </div>
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
-          <p>Drag 'n' drop an image here, or click to select one</p>
+          <p>Glissez-déposez une image ou cliquez pour en choisir une.</p>
         </div>
-        <button type="button" onClick={() => setShowWebcam(true)}>Take Photo</button>
+        <button type="button" onClick={() => setShowWebcam(true)}>Prendre une photo</button>
         {showWebcam && (
           <div>
             <Webcam
@@ -109,11 +109,11 @@ const AddProduct = () => {
                 facingMode: { exact: "environment" } // Use rear camera
               }}
             />
-            <button type="button" onClick={capture}>Capture Photo</button>
+            <button type="button" onClick={capture}>Capturer photo</button>
           </div>
         )}
         {imageUrl && <img src={imageUrl} alt="Product" style={{ width: '100px', height: '100px' }} />}
-        <button type="submit">Add Product</button>
+        <button type="submit">Ajouter le produit</button>
       </form>
     </div>
   );

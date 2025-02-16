@@ -129,24 +129,24 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2>Product List</h2>
+      <h2>Liste de produits</h2>
       <div className="search-add-container">
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search by name"
+            placeholder="Rechercher par nom..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <div className="add-product-container">
           <Link to="/add-product">
-            <button>Add Product</button>
+            <button>Ajouter un produit</button>
           </Link>
         </div>
       </div>
       <div className="pagination-controls">
-        <label htmlFor="productsPerPage">Products per page:</label>
+        <label htmlFor="productsPerPage">Produits par page:</label>
         <select id="productsPerPage" value={productsPerPage} onChange={handleProductsPerPageChange}>
           <option value="5">5</option>
           <option value="10">10</option>
@@ -157,8 +157,8 @@ const Home = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Quantity</th>
+            <th>Nom</th>
+            <th>Quantité</th>
             <th>QR Code</th>
             <th>Description</th>
             <th>Image</th>
@@ -187,7 +187,7 @@ const Home = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="5">No products found.</td>
+              <td colSpan="5">Aucun produit trouvé.</td>
             </tr>
           )}
         </tbody>
@@ -206,7 +206,7 @@ const Home = () => {
             <div className="product-info">
               <img src={selectedProduct.image_url} alt={selectedProduct.name} />
               <h3>{selectedProduct.name}</h3>
-              <p>Quantity: {selectedProduct.quantity}</p>
+              <p>Quantité: {selectedProduct.quantity}</p>
               <div className="quantity-controls">
                 <button onClick={handleDecrement}>-</button>
                 <span>{selectedProduct.quantity}</span>
@@ -215,8 +215,8 @@ const Home = () => {
               <p>Description: {selectedProduct.description}</p>
               <QRCodeCanvas value={selectedProduct.qr_code || ''} size={100} />
               <br></br>
-              <button onClick={handleDeleteProduct} className="delete-button">Delete</button>
-              <button onClick={handleSaveQuantity} className="save-button">Save</button>
+              <button onClick={handleDeleteProduct} className="delete-button">Supprimer</button>
+              <button onClick={handleSaveQuantity} className="save-button">Enregistrer</button>
             </div>
           </div>
         </div>

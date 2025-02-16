@@ -130,28 +130,28 @@ const QRScanner = () => {
 
   return (
     <div className="container">
-      <h2>Scan QR Code</h2>
+      <h2>Scanner le QR Code</h2>
       <div id="reader"></div>
       {error && <p className="error-message">{error}</p>}
       {result && (
         <div className="result-container">
           <img src={result.image_url} alt={result.name} />
           <h3>{result.name}</h3>
-          <p>Quantity: {result.quantity}</p>
+          <p>Quantité: {result.quantity}</p>
           {result.description && <p>Description: {result.description}</p>}
           <div className="quantity-controls">
             <button onClick={handleDecrement}>-</button>
             <span>{result.quantity}</span>
             <button onClick={handleIncrement}>+</button>
           </div>
-          <button onClick={handleSaveQuantity} className="save-button">Save</button>
-          <button onClick={handleDeleteProduct} className="delete-button">Delete</button>
+          <button onClick={handleSaveQuantity} className="save-button">Enregistrer</button>
+          <button onClick={handleDeleteProduct} className="delete-button">Supprimer</button>
         </div>
       )}
       {showScanAnother && (
         <>
           {error && <p className="error-message">{error}</p>}
-          <button onClick={handleScanAnother} className="scan-another-button">Scan Another Product</button>
+          <button onClick={handleScanAnother} className="scan-another-button">Scanner un autre produit</button>
         </>
       )}
     </div>
