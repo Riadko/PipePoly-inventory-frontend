@@ -1,0 +1,268 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .search-add-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .add-product-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .add-product-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .add-product-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .pagination-controls label {
+    margin-right: 10px;
+  }
+  
+  .pagination-controls select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  img {
+    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Specific styles for QR code images */
+  .qr-code-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qr-code-wrapper canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-link {
+    color: #007bff;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .page-link:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  /* Delete Button Styles */
+  .modal .delete-button {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .modal .delete-button:hover {
+    background-color: #c82333 !important;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    .search-add-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .search-container {
+      width: 100%;
+    }
+  
+    .search-container input {
+      width: calc(100% - 120px);
+      margin-right: 10px;
+    }
+  
+    .add-product-container {
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .pagination-controls {
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .pagination-controls label,
+    .pagination-controls select {
+      margin-bottom: 10px;
+    }
+  
+    table, th, td {
+      font-size: 14px;
+    }
+  
+    th, td {
+      padding: 6px;
+    }
+  
+    img {
+      width: 80px;
+      height: auto;
+    }
+  
+    .qr-code-wrapper canvas {
+      width: 60px;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .search-container input {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .add-product-container {
+      width: 100%;
+    }
+  
+    .pagination-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .pagination-controls label,
+    .pagination-controls select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    table, th, td {
+      font-size: 12px;
+    }
+  
+    th, td {
+      padding: 4px;
+    }
+  
+    img {
+      width: 60px;
+      height: auto;
+    }
+  
+    .qr-code-wrapper canvas {
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain; /* Ensures it maintains aspect ratio */
+    }
+  }
